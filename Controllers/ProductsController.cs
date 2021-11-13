@@ -29,7 +29,7 @@ namespace LetsShop.Controllers
             {
                 product.Id = CurrentId++;
                 Products.Add(product);
-                return StatusCode(201, "O produto foi adicionado com sucesso!");
+                return StatusCode(201, "O produto "+ product.Name + " foi adicionado com sucesso! ");
             }
         }
 

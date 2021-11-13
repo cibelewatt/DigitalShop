@@ -21,3 +21,26 @@ C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\LetsShop\LetsShop\ob
 C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\LetsShop\LetsShop\obj\Debug\net5.0\ref\LetsShop.dll
 C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\LetsShop\LetsShop\obj\Debug\net5.0\LetsShop.pdb
 C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\LetsShop\LetsShop\obj\Debug\net5.0\LetsShop.genruntimeconfig.cache
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\appsettings.Development.json
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\appsettings.json
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\LetsShop.exe
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\LetsShop.deps.json
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\LetsShop.runtimeconfig.json
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\LetsShop.runtimeconfig.dev.json
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\LetsShop.dll
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\ref\LetsShop.dll
+C:\Programacao\projetos\letscode\LetsShop\bin\Debug\net5.0\LetsShop.pdb
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.csproj.AssemblyReference.cache
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.AssemblyInfoInputs.cache
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.AssemblyInfo.cs
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.csproj.CoreCompileInputs.cache
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\staticwebassets\LetsShop.StaticWebAssets.Manifest.cache
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\staticwebassets\LetsShop.StaticWebAssets.xml
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\scopedcss\bundle\LetsShop.styles.css
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.RazorTargetAssemblyInfo.cache
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.dll
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\ref\LetsShop.dll
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.pdb
+C:\Programacao\projetos\letscode\LetsShop\obj\Debug\net5.0\LetsShop.genruntimeconfig.cache

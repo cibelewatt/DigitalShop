@@ -12,7 +12,8 @@ namespace LetsShop.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private static List<Product> Products = new List<Product>();
+        //mudei p/ public p/ ser acessível no cart
+        public static List<Product> Products = new List<Product>();
         private static int CurrentId = 0;
 
         [HttpPost]
@@ -29,7 +30,7 @@ namespace LetsShop.Controllers
             {
                 product.Id = CurrentId++;
                 Products.Add(product);
-                return StatusCode(201, "O produto "+ product.Name + " foi adicionado com sucesso! ");
+                return StatusCode(201, "O produto "+ product.Name + " foi adicionado com sucesso!");
             }
         }
 
@@ -53,6 +54,12 @@ namespace LetsShop.Controllers
             catch
             {
                 return StatusCode(500, "Erro.");
+
+                //return StatusCode(501, "Produto inexistente em nossa loja.");
+
+                //501 Not Implemented
+                //    The server either does not recognize the request method, or it lacks the ability to fulfil the request.
+                //    Usually this implies future availability(e.g., a new feature of a web - service API)
             }
         }
 
@@ -69,6 +76,8 @@ namespace LetsShop.Controllers
             catch
             {
                 return StatusCode(500, "Erro.");
+
+                //return StatusCode(501, "Produto inexistente em nossa loja.");
             }
         }
 

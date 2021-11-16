@@ -24,7 +24,7 @@ namespace LetsShop.Controllers
 
             if (existingProduct.Any())
             {
-                return StatusCode(409, "Um produto com esse nome já existe em nossa loja."); //208/422
+                return StatusCode(409, "Um produto com esse nome já existe na loja."); //208/422
             }
             else
             {
@@ -35,8 +35,8 @@ namespace LetsShop.Controllers
         }
 
         [HttpGet]
-        [Route("all")]
-        public IActionResult GetProducts()
+        [Route("all")] //erro sem rota
+        public IActionResult AllProducts()
         {
             return Ok(Products);
         }
@@ -47,6 +47,7 @@ namespace LetsShop.Controllers
         {
             try
             {
+                var existingProduct = Products[index];
                 product.Id = Products[index].Id;
                 Products[index] = product;
                 return Ok(Products[index]);
@@ -54,17 +55,11 @@ namespace LetsShop.Controllers
             catch
             {
                 return StatusCode(500, "Erro.");
-
-                //return StatusCode(501, "Produto inexistente em nossa loja.");
-
-                //501 Not Implemented
-                //    The server either does not recognize the request method, or it lacks the ability to fulfil the request.
-                //    Usually this implies future availability(e.g., a new feature of a web - service API)
             }
         }
 
         [HttpGet]
-        [Route("/{id}")]
+        [Route("{id}")]
         public IActionResult GetProductById([FromRoute] int id)
         {
             var existingProduct = Products.Where(x => x.Id == id);
@@ -87,7 +82,7 @@ namespace LetsShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetProductByName([FromQuery] String name)
+        public IActionResult GetProductByName([FromQuery] string name)
         {
             var existingProduct = Products.Where(x => x.Name == name);
 
@@ -121,8 +116,6 @@ namespace LetsShop.Controllers
             catch
             {
                 return StatusCode(500, "Erro.");
-
-                //return StatusCode(501, "Produto inexistente em nossa loja.");
             }
         }
 

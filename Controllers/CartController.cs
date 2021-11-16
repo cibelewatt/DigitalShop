@@ -30,7 +30,7 @@ namespace LetsShop.Controllers
             var existingProductInCart = ProductsInCart.Where(x => x.Id == productInCart.Id);
 
             //verifica se o produto realmente existe
-            var existingProduct = ProductsController.Products.Where(x => x.Id == productInCart.Id);
+            var existingProduct = ProductsController.Products.Where(x => x.Id == productInCart.ProductId);
 
             if (existingProduct.Any())
             {
@@ -39,7 +39,7 @@ namespace LetsShop.Controllers
                     try
                     {
                         existingProductInCart.FirstOrDefault().Quantity += productInCart.Quantity;
-                        return Ok("Quantidade do produto " + productInCart.Id + " atualizada com sucesso. ");
+                        return Ok("Quantidade do item de Id " + productInCart.Id + " atualizada com sucesso. ");
                     }
                     catch
                     {
@@ -50,8 +50,9 @@ namespace LetsShop.Controllers
                 {
                     try
                     {
+                        productInCart.Id = CurrentId++;
                         ProductsInCart.Add(productInCart);
-                        return Ok("Produto " + productInCart.Id + " adicionado ao carrinho com sucesso. ");
+                        return Ok("Produto de Id " + productInCart.ProductId + " adicionado ao carrinho como item de Id " + productInCart.Id);
                     }
                     catch
                     {
@@ -61,7 +62,7 @@ namespace LetsShop.Controllers
                 }
             } else
             {
-                return StatusCode(501, "O produto de index " + productInCart.Id + " não existe em nossa loja.");
+                return StatusCode(501, "O produto de Id " + productInCart.ProductId + " não existe em nossa loja.");
             }
 
         }
@@ -70,30 +71,53 @@ namespace LetsShop.Controllers
         [Route("delete/{id}")]
         public IActionResult DeleteProduct([FromRoute] int id)
         {
-            try
+            var productToRemove = ProductsInCart.Where(x => x.Id == id).FirstOrDefault();
+
+            if (productToRemove != null)
             {
-                var productToRemove = ProductsInCart.Where(x => x.Id == id).FirstOrDefault();
-                productToRemove.Quantity--;
-                return Ok("Uma unidade do item de Id " + productToRemove.ProductId + " foi deletada do carrinho.");
+                try
+                {
+                    if (productToRemove.Quantity == 1)
+                    {
+                        ProductsInCart.Remove(productToRemove);
+                        return Ok("O item de Id " + productToRemove.Id + " foi deletado do carrinho.");
+                    }
+                    else
+                    {
+                        productToRemove.Quantity--;
+                        return Ok("Uma unidade do item de Id " + productToRemove.Id + " foi deletada do carrinho.");
+                    }
+                }
+                catch
+                {
+                    return StatusCode(500, "Erro.");
+                }
             }
-            catch
+            else
             {
                 return StatusCode(404, "Não existe a Id " + id + " no carrinho atual.");
             }
         }
 
         [HttpDelete]
-        [Route("emptycart")]
+        [Route("empty")]
         public IActionResult EmptyCart()
         {
             try
             {
-                ProductsInCart.Clear();
-                return Ok("Seu carrinho está vazio.");
+                if (ProductsInCart.Any())
+                {
+                    ProductsInCart.Clear();
+                    return Ok("Seu carrinho foi esvaziado.");
+                }
+                else
+                {
+                    return Ok("Seu carrinho está vazio.");
+                }
             }
             catch
             {
-                return StatusCode(404);
+                return StatusCode(500, "Erro.");
             }
         }
 
@@ -102,12 +126,13 @@ namespace LetsShop.Controllers
         public IActionResult Checkout()
         {
             double amountDue = 0;
+
             foreach (ProductInCart product in ProductsInCart)
             {
                 amountDue += ((product.Quantity) * (ProductsController.Products.Where(x => x.Id == product.ProductId).FirstOrDefault().Price));
             }
 
-            return Ok("Valor total do carrinho: " +amountDue);
+            return Ok("Valor total do carrinho: " + amountDue);
         }
     }
 }

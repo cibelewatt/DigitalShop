@@ -8,24 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\cibel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\bcast\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Programacao\\projetos\\letscode\\LetsShop\\LetsShop.csproj",
+      "projectUniqueName": "C:\\Users\\bcast\\Documents\\CODING\\.NET + Angular (aulas)\\.NET\\DigitalShop\\LetsShop.csproj",
       "projectName": "LetsShop",
-      "projectPath": "C:\\Programacao\\projetos\\letscode\\LetsShop\\LetsShop.csproj",
-      "packagesPath": "C:\\Users\\cibel\\.nuget\\packages\\",
-      "outputPath": "C:\\Programacao\\projetos\\letscode\\LetsShop\\obj\\",
+      "projectPath": "C:\\Users\\bcast\\Documents\\CODING\\.NET + Angular (aulas)\\.NET\\DigitalShop\\LetsShop.csproj",
+      "packagesPath": "C:\\Users\\bcast\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bcast\\Documents\\CODING\\.NET + Angular (aulas)\\.NET\\DigitalShop\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cibel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\bcast\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -68,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

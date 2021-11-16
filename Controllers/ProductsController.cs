@@ -63,6 +63,51 @@ namespace LetsShop.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("/{id}")]
+        public IActionResult GetProductById([FromRoute] int id)
+        {
+            var existingProduct = Products.Where(x => x.Id == id);
+
+            try
+            {
+                if (existingProduct.Any())
+                {
+                    return Ok(existingProduct.FirstOrDefault());
+                }
+                else
+                {
+                    return StatusCode(404, "Produto não cadastrado.");
+                }
+            }
+            catch
+            {
+                return StatusCode(500, "Erro.");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetProductByName([FromQuery] String name)
+        {
+            var existingProduct = Products.Where(x => x.Name == name);
+
+            try
+            {
+                if (existingProduct.Any())
+                {
+                    return Ok(existingProduct.FirstOrDefault());
+                }
+                else
+                {
+                    return StatusCode(404, "Produto não cadastrado.");
+                }
+            }
+            catch
+            {
+                return StatusCode(500, "Erro.");
+            }
+        }
+
         [HttpDelete]
         [Route("delete/{index}")]
         public IActionResult DeleteProduct([FromRoute] int index)

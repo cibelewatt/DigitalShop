@@ -22,7 +22,7 @@ namespace LetsShop.Controllers
         }
 
         [HttpPost]
-        [Route("Products/add/{productIndex}")]
+        [Route("add")]
         public IActionResult AddProduct([FromBody] ProductInCart productInCart)
         {
 
@@ -67,19 +67,47 @@ namespace LetsShop.Controllers
         }
 
         [HttpDelete]
-        [Route("Products/delete/{productIndex}")]
-        public IActionResult DeleteProduct([FromRoute] int productIndex)
+        [Route("delete/{id}")]
+        public IActionResult DeleteProduct([FromRoute] int id)
         {
             try
             {
-                var productToRemove = ProductsInCart.Where(x => x.Name == ProductsController.Products[productIndex].Name).FirstOrDefault();
-                ProductsInCart.Remove(productToRemove);
-                return Ok("O produto " + productToRemove.Name + " foi deletado do carrinho.");
+                var productToRemove = ProductsInCart.Where(x => x.Id == id).FirstOrDefault();
+                productToRemove.Quantity--;
+                return Ok("Uma unidade do item de Id " + productToRemove.ProductId + " foi deletada do carrinho.");
             }
             catch
             {
-                return StatusCode(501, "O produto de index " + productIndex + " não existe em nossa loja.");
+                return StatusCode(404, "Não existe a Id " + id + " no carrinho atual.");
             }
+        }
+
+        [HttpDelete]
+        [Route("emptycart")]
+        public IActionResult EmptyCart()
+        {
+            try
+            {
+                ProductsInCart.Clear();
+                return Ok("Seu carrinho está vazio.");
+            }
+            catch
+            {
+                return StatusCode(404);
+            }
+        }
+
+        [HttpGet]
+        [Route("checkout")]
+        public IActionResult Checkout()
+        {
+            double amountDue = 0;
+            foreach (ProductInCart product in ProductsInCart)
+            {
+                amountDue += ((product.Quantity) * (ProductsController.Products.Where(x => x.Id == product.ProductId).FirstOrDefault().Price));
+            }
+
+            return Ok("Valor total do carrinho: " +amountDue);
         }
     }
 }

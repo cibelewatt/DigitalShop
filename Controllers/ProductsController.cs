@@ -1,4 +1,7 @@
 ﻿using LetsShop.Models;
+using LetsShop.Repoitories;
+using LetsShop.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,7 +20,8 @@ namespace LetsShop.Controllers
         private static int CurrentId = 0;
 
         [HttpPost]
-        [Route("create")]
+        [Route("funcionario/create")]
+        [Authorize(Roles = "funcionario")]
         public IActionResult CreateProduct([FromBody] Product product)
         {
             var existingProduct = Products.Where(x => x.Name == product.Name);
@@ -36,13 +40,15 @@ namespace LetsShop.Controllers
 
         [HttpGet]
         [Route("all")] //erro sem rota
+        [AllowAnonymous]
         public IActionResult AllProducts()
         {
             return Ok(Products);
         }
 
         [HttpPatch]
-        [Route("update/{index}")]
+        [Route("funcionario/update/{index}")]
+        [Authorize(Roles = "funcionario")]
         public IActionResult UpdateProduct([FromRoute] int index, [FromBody] Product product)
         {
             try
@@ -54,12 +60,13 @@ namespace LetsShop.Controllers
             }
             catch
             {
-                return StatusCode(500, "Erro.");
+                return StatusCode(404);
             }
         }
 
         [HttpGet]
         [Route("{id}")]
+        [AllowAnonymous]
         public IActionResult GetProductById([FromRoute] int id)
         {
             var existingProduct = Products.Where(x => x.Id == id);
@@ -82,6 +89,7 @@ namespace LetsShop.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult GetProductByName([FromQuery] string name)
         {
             var existingProduct = Products.Where(x => x.Name == name);
@@ -104,7 +112,8 @@ namespace LetsShop.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{index}")]
+        [Route("funcionario/delete/{index}")]
+        [Authorize(Roles = "funcionario")]
         public IActionResult DeleteProduct([FromRoute] int index)
         {
             try

@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "da3a4fe4-999b-46d6-8e4a-ac29edc57b5b",
+		"name": "Home",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authetication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Anderson\",\r\n    \"password\": \"321cliente654\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Home/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Home",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -90,3 +90,11 @@ C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\obj\Debu
 C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\obj\Debug\net5.0\ref\LetsShop.dll
 C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\obj\Debug\net5.0\LetsShop.pdb
 C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\obj\Debug\net5.0\LetsShop.genruntimeconfig.cache
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\bcast\Documents\CODING\.NET + Angular (aulas)\.NET\DigitalShop\obj\Debug\net5.0\LetsShop.csproj.CopyComplete

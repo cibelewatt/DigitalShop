@@ -1,10 +1,16 @@
 ﻿using LetsShop.Models;
+using LetsShop.Repoitories;
+using LetsShop.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using LetsShop.TransactModels;
 
 namespace LetsShop.Controllers
 {
@@ -15,7 +21,10 @@ namespace LetsShop.Controllers
         private static List<ProductInCart> ProductsInCart = new List<ProductInCart>();
         private static int CurrentId = 0;
 
+        public object JsonSerialize { get; private set; }
+
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult GetProductsInCart()
         {
             return Ok(ProductsInCart);
@@ -23,6 +32,7 @@ namespace LetsShop.Controllers
 
         [HttpPost]
         [Route("add")]
+        [AllowAnonymous]
         public IActionResult AddProduct([FromBody] ProductInCart productInCart)
         {
 
@@ -69,6 +79,7 @@ namespace LetsShop.Controllers
 
         [HttpDelete]
         [Route("delete/{id}")]
+        [AllowAnonymous]
         public IActionResult DeleteProduct([FromRoute] int id)
         {
             var productToRemove = ProductsInCart.Where(x => x.Id == id).FirstOrDefault();
@@ -101,6 +112,7 @@ namespace LetsShop.Controllers
 
         [HttpDelete]
         [Route("empty")]
+        [AllowAnonymous]
         public IActionResult EmptyCart()
         {
             try
@@ -122,7 +134,8 @@ namespace LetsShop.Controllers
         }
 
         [HttpGet]
-        [Route("checkout")]
+        [Route("cliente/checkout")]
+        [Authorize(Roles = "cliente")]
         public IActionResult Checkout()
         {
             double amountDue = 0;
@@ -132,7 +145,12 @@ namespace LetsShop.Controllers
                 amountDue += ((product.Quantity) * (ProductsController.Products.Where(x => x.Id == product.ProductId).FirstOrDefault().Price));
             }
 
-            return Ok("Valor total do carrinho: " + amountDue);
+            CheckoutTransactModel checkout = new();
+
+            checkout.productsInCart = ProductsInCart;
+            checkout.totalValue = amountDue;
+
+            return Ok(checkout);
         }
     }
 }
